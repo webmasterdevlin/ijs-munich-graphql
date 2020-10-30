@@ -7,10 +7,10 @@ const resolvers = {
     return db.collection(tableEvents).find().toArray();
   },
 
-  event: async (args, context, info) => {
+  event: async ({ id }, context, info) => {
     const { db } = await context();
 
-    return db.collection(tableEvents).findOne(args.id);
+    return db.collection(tableEvents).findOne({ id });
   },
 
   editEvent: async ({ id, title, description }, context, info) => {

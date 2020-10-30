@@ -6,7 +6,7 @@ const tableEvents = "events";
 
 async function startDatabase() {
   const mongo = new MongoMemoryServer();
-  const mongoDBURL = await mongo.getConnectionString();
+  const mongoDBURL = await mongo.getUri();
 
   const connection = await MongoClient.connect(mongoDBURL, {
     useNewUrlParser: true,
